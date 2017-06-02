@@ -12,13 +12,12 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListFragment extends Fragment {
+public class DetailFragment extends Fragment {
     MainActivity activity;
 
-    public ListFragment() {
+    public DetailFragment() {
         // Required empty public constructor
     }
-
     public void setActivity(MainActivity activity){
         this.activity = activity;
     }
@@ -28,13 +27,14 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         // 프래그먼의 메인 레이아웃을 inflate하고
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_detail, container,false);
         // 안에 위젯들을 코드에 연결한다.
-        Button btnGoDetail = (Button)view.findViewById(R.id.btnGoDetail);
-        btnGoDetail.setOnClickListener(new View.OnClickListener() {
+        Button btnGoBack = (Button)view.findViewById(R.id.back);
+        btnGoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.addDetail();
+                activity.backToList();
+
             }
         });
 
